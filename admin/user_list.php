@@ -70,21 +70,19 @@ for($i=0;$i<count($users);$i++) {
     </div>";
 
     $content .= "</tr>";
+}
 
-    if(isset($_GET['m']) && !empty($_GET['m']))
-    {
-        switch($_GET['m'])
-        {
-            case 'success':
-                $msg_success .= "<div class='alert alert-success'>The user is deleted.</div>";
-            break;
-            case 'fail':
-                $msg_error .= "<div class='alert alert-danger'>Error during the operation. If you still have this mistake after few tries, please call the dev' team.</div>";
-            break;
-            default:
-                $msg_success .= "<div class='alert alert-secondary'>Don't understand, please try again.</div>";
-            break;
-        }
+if(isset($_GET['m']) && !empty($_GET['m'])) {
+    switch($_GET['m']){
+        case 'success':
+            $msg_success .= "<div class='alert alert-success'>The user is deleted.</div>";
+        break;
+        case 'fail':
+            $msg_error .= "<div class='alert alert-danger'>Error during the operation. If you still have this mistake after few tries, please call the dev' team.</div>";
+        break;
+        default:
+            $msg_success .= "<div class='alert alert-secondary'>Don't understand, please try again.</div>";
+        break;
     }
 }
 
