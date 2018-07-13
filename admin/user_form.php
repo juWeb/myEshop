@@ -94,7 +94,7 @@
 
             if(!empty($_POST['id_user'])){
 
-            $result = $pdo->prepare("UPDATE user SET pseudo=:pseudo, pwd=:pwd, firstname=:firstname, lastname=:lastname, email=:email, 
+            $result = $pdo->prepare("UPDATE user SET pseudo=:pseudo, firstname=:firstname, lastname=:lastname, email=:email, 
             gender=:gender, city=:city, zip_code=:zip_code, address=:address, privilege=:privilege WHERE id_user=:id_user");
 
             //Bind values
@@ -102,7 +102,6 @@
             $result->bindValue(':id_user', $_POST['id_user'], PDO::PARAM_INT);
 
             $result->bindValue(':pseudo', $_POST['pseudo'], PDO::PARAM_STR);
-            $result->bindValue(':pwd', $_POST['password'], PDO::PARAM_STR);
             $result->bindValue(':firstname', $_POST['firstname'], PDO::PARAM_STR);
             $result->bindValue(':lastname', $_POST['lastname'], PDO::PARAM_STR);
             $result->bindValue(':email', $_POST['email'], PDO::PARAM_STR);
@@ -116,14 +115,12 @@
             }
 
             
-            debug($_POST);
+            //debug($_POST);
         
 
             if($result->execute()){
-
                 //B.2.1 Mysql request
-
-                // header('location:users_list.php');
+                header('location:user_list.php');
             }
         }
     }
