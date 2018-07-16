@@ -155,7 +155,7 @@ $gender = (isset($_POST['gender'])) ? $_POST['gender'] : '';
             <div class="form-group">
                 <input type="text" class="form-control" name="city" placeholder="City..." value="<?= $city ?>">
             </div>
-            <input type="submit" value="Send" class="btn btn-success btn-lg btn-block">
+            <input type="submit" value="Send" class="btn btn-dark btn-lg btn-block">
         </form>
     
 <?php

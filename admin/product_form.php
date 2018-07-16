@@ -158,12 +158,12 @@
         <div class="form-group">
             <select class="form-control" name="size">
                 <option disabled selected>Size of the product...</option>
-                <option <?php if($size == 'xs'){ echo 'selected';} ?>>xs</option>
-                <option <?php if($size == 's'){ echo 'selected';} ?>>s</option>
-                <option <?php if($size == 'm'){ echo 'selected';} ?>>m</option>
-                <option <?php if($size == 'l'){ echo 'selected';} ?>>l</option>
-                <option <?php if($size == 'xl'){ echo 'selected';} ?>>xl</option>
-                <option <?php if($size == 'xxl'){ echo 'selected';} ?>>xxl</option>
+                <option <?php if($size == 'xs'){ echo 'selected';} ?>>40</option>
+                <option <?php if($size == 's'){ echo 'selected';} ?>>41</option>
+                <option <?php if($size == 'm'){ echo 'selected';} ?>>42</option>
+                <option <?php if($size == 'l'){ echo 'selected';} ?>>43</option>
+                <option <?php if($size == 'xl'){ echo 'selected';} ?>>44</option>
+                <option <?php if($size == 'xxl'){ echo 'selected';} ?>>45</option>
             </select>
         </div>
         <div class="form-group">

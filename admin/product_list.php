@@ -10,7 +10,7 @@
 
     for ($i = 0; $i < $result->columnCount(); $i++) 
     {
-        $columns = $result->getColumnMeta($i);
+        $columns = $result->getColumnMeta($i); 
         $content .= "<th scope='col'>" . ucfirst(str_replace('_', ' ', $columns['name'])) . "</th>";
     }
     $content .= '<th colspan="2">Actions</th>';
@@ -30,13 +30,14 @@
             }
         }
         $content .= "<td><a href='" . URL . "admin/product_form.php?id=" . $product['id_product'] . "'><i class='fas fa-pen'></i></a></td>";
-        $content .= "<td><a href='?id=" . $product['id_product'] . "'><i class='fas fa-trash-alt'></i></a></td>";
+        $content .= "<td><a href='?id=" . $product['id_product'] . "' data-toggle='modal' data-target='#myModal'><i class='fas fa-trash-alt'></i></a></td>";
         $content .= "</tr>";
     }
     $content .= "</tbody></table>";
 
     if(isset($_GET['id']) && !empty($_GET['id']) && is_numeric($_GET['id']))
     {
+        
         $req = "SELECT * FROM product WHERE id_product = :id_product";
 
         $result = $pdo->prepare($req);
@@ -102,6 +103,33 @@
 <?= $msg_error ?>
 <?= $msg_success ?>
 <?= $content ?>
+
+
+
+<div class="container">
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Updates confirmation</h4>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure of your updates?</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+             <a href="?id=<?=$product["id_product"]?>"><button type="button" class="btn btn-primary">Save updates</button></a>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
 
 <?php
 

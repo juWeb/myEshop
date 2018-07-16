@@ -5,10 +5,11 @@
 
     if($_POST)
     {
-        $req = "SELECT * FROM user WHERE pseudo = :pseudo";
+        $req = "SELECT * FROM user WHERE pseudo = :pseudo OR email = :email";
 
         $result = $pdo->prepare($req);
-        $result->bindValue(":pseudo", $_POST['pseudo'], PDO::PARAM_STR);
+        $result->bindValue(":pseudo", $_POST['identifier'], PDO::PARAM_STR);
+        $result->bindValue(":email", $_POST['identifier'], PDO::PARAM_STR);
 
         $result->execute();
 
@@ -49,12 +50,12 @@
         <form action="" method="post">
             <?= $msg_error ?>
             <div class="form-group">
-                <input type="text" class="form-control" name="pseudo" placeholder="Your pseudo..." required>
+                <input type="text" class="form-control" name="identifier" placeholder="Your pseudo..." required>
             </div>
             <div class="form-group">
                 <input type="password" class="form-control" name="password" placeholder="Your password..." required>
             </div>
-            <input type="submit" value="Login" class="btn btn-success btn-lg btn-block">
+            <input type="submit" value="Login" class="btn btn-warning btn-lg btn-block">
         </form>
     
 <?php
